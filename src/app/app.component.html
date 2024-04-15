@@ -1,9 +1,17 @@
-<ag-grid-angular
+<adaptable-provider
         [adaptableOptions]="adaptableOptions"
         [gridOptions]="gridOptions"
         [modules]="agGridModules"
         (adaptableReady)="adaptableReady($event)"
-        style="flex: 1"
-        class="ag-theme-alpine"
+        style="height: 100vh; width: 100vw;"
 >
-</ag-grid-angular>
+    <adaptable-ui style="flex: none"></adaptable-ui>
+    <ag-grid-angular
+            *adaptable="let adaptable"
+            [gridOptions]="adaptable.gridOptions"
+            [modules]="adaptable.modules"
+            style="flex: 1"
+            class="ag-theme-alpine"
+    >
+    </ag-grid-angular>
+</adaptable-provider>

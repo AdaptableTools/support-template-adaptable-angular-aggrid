@@ -43,7 +43,7 @@ export class AppComponent {
     };
   }
 
-  adaptableReady = ({ adaptableApi, gridOptions }) => {
+  adaptableReady = ({ adaptableApi }) => {
     this.adaptableApi = adaptableApi;
     // use AdaptableApi for runtime access to Adaptable
   };
