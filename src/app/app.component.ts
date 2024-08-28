@@ -6,7 +6,7 @@ import {
 } from '@adaptabletools/adaptable-angular-aggrid';
 import { rowData } from './rowData';
 import { RECOMMENDED_MODULES } from './agGridModules';
-import { columnDefs } from './columnDefs';
+import { columnDefs, defaultColDef } from './columnDefs';
 
 @Component({
   selector: 'my-app',
@@ -38,6 +38,7 @@ export class AppComponent {
 
   constructor() {
     this.gridOptions = {
+      defaultColDef,
       columnDefs,
       rowData,
     };
