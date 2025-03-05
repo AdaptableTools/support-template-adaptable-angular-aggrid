@@ -49,19 +49,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "adaptable-angular-app:build",
-            "disableHostCheck": true
+            "disableHostCheck": true,
+            "buildTarget": "adaptable-angular-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "adaptable-angular-app:build:production"
+              "buildTarget": "adaptable-angular-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "adaptable-angular-app:build"
+            "buildTarget": "adaptable-angular-app:build"
           }
         }
       }

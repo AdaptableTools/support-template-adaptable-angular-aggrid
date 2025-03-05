@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GridOptions, Module } from '@ag-grid-community/core';
+import { GridOptions, Module } from 'ag-grid-enterprise';
 import {
   AdaptableApi,
   AdaptableOptions,
@@ -23,6 +23,7 @@ export class AppComponent {
     userName: 'demo-user',
     // licenseKey: <add_provided_license_key>,
     adaptableId: 'AdapTable Angular App',
+
     predefinedConfig: {
       Dashboard: {
         Revision: Date.now(),
@@ -33,11 +34,39 @@ export class AppComponent {
           },
         ],
       },
+      Layout: {
+        CurrentLayout: 'Standard Layout',
+        Layouts: [
+          {
+            Name: 'Standard Layout',
+            TableColumns: [
+              'name',
+              'language',
+              'github_stars',
+              'license',
+              'created_at',
+              'has_wiki',
+              'updated_at',
+              'pushed_at',
+              'github_watchers',
+              'open_issues_count',
+              'closed_issues_count',
+              'open_pr_count',
+              'closed_pr_count',
+              'description',
+              'has_projects',
+              'has_pages',
+              'week_issue_change',
+            ],
+          },
+        ],
+      },
     },
   };
 
   constructor() {
     this.gridOptions = {
+      theme: 'legacy',
       defaultColDef,
       columnDefs,
       rowData,

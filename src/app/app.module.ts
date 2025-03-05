@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import { AgGridModule } from '@ag-grid-community/angular';
+import { AgGridModule } from 'ag-grid-angular';
 import { AdaptableAngularAgGridModule } from '@adaptabletools/adaptable-angular-aggrid';
 
 @NgModule({
