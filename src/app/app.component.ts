@@ -3,6 +3,7 @@ import { GridOptions, Module } from 'ag-grid-enterprise';
 import {
   AdaptableApi,
   AdaptableOptions,
+  AdaptableStateFunctionConfig
 } from '@adaptabletools/adaptable-angular-aggrid';
 import { rowData } from './rowData';
 import { RECOMMENDED_MODULES } from './agGridModules';
@@ -22,11 +23,32 @@ export class AppComponent {
     primaryKey: 'id',
     userName: 'demo-user',
     // licenseKey: <add_provided_license_key>,
-    adaptableId: 'AdapTable Angular App',
-
+    adaptableId: 'AdapTable Angular App', // Typically you will store State remotely; here we simply leverage local storage for convenience
+    stateOptions: {
+      persistState: (state, adaptableStateFunctionConfig) => {
+        localStorage.setItem(
+          adaptableStateFunctionConfig.adaptableStateKey,
+          JSON.stringify(state)
+        );
+        return Promise.resolve(true);
+      },
+      loadState: (config: AdaptableStateFunctionConfig) => {
+        return new Promise((resolve) => {
+          let state = {};
+          try {
+            state =
+              JSON.parse(
+                localStorage.getItem(config.adaptableStateKey) as string
+              ) || {};
+          } catch (err) {
+            console.log('Error loading state', err);
+          }
+          resolve(state);
+        });
+      },
+    },
     predefinedConfig: {
       Dashboard: {
-        Revision: Date.now(),
         Tabs: [
           {
             Name: 'Default',
