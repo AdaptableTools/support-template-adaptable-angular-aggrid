@@ -47,7 +47,7 @@ export class AppComponent {
         });
       },
     },
-    predefinedConfig: {
+    initialState: {
       Dashboard: {
         Tabs: [
           {
