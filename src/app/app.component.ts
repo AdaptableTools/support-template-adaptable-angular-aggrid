@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { GridOptions, Module } from 'ag-grid-enterprise';
+import { GridOptions, Module, themeQuartz } from 'ag-grid-enterprise';
 import {
   AdaptableApi,
   AdaptableOptions,
-  AdaptableStateFunctionConfig
+  AdaptableStateFunctionConfig,
 } from '@adaptabletools/adaptable-angular-aggrid';
 import { rowData } from './rowData';
 import { RECOMMENDED_MODULES } from './agGridModules';
@@ -88,7 +88,7 @@ export class AppComponent {
 
   constructor() {
     this.gridOptions = {
-      theme: 'legacy',
+      theme: themeQuartz,
       defaultColDef,
       columnDefs,
       rowData,

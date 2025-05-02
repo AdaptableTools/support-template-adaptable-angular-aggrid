@@ -1,13 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 /**
- *      AG Grid styles
- */
-@import 'ag-grid-enterprise/styles/ag-grid.css';
-@import 'ag-grid-enterprise/styles/ag-theme-alpine.css';
-@import 'ag-grid-enterprise/styles/ag-theme-balham.css';
-
-/**
  *      Adaptable styles
  */
 @import '@adaptabletools/adaptable-angular-aggrid/index.css';
