@@ -5,7 +5,17 @@
         (adaptableReady)="adaptableReady($event)"
         style="height: 100vh; width: 100vw;"
 >
+    <div class="button-bar">
+        <button (click)="toggleDashboard()" class="action-btn btn-indigo">
+            Show/Hide Adaptable
+        </button>
+        <button (click)="showTransposedView()" class="action-btn btn-teal">
+            ShowTransposed Data
+        </button>
+    </div>
+
     <adaptable-ui style="flex: none"></adaptable-ui>
+
     <ag-grid-angular
             *adaptable="let adaptable"
             [gridOptions]="adaptable.gridOptions"

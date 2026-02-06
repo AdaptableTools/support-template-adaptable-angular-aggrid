@@ -23,30 +23,7 @@ export class AppComponent {
     primaryKey: 'id',
     userName: 'demo-user',
     // licenseKey: <add_provided_license_key>,
-    adaptableId: 'AdapTable Angular App', // Typically you will store State remotely; here we simply leverage local storage for convenience
-    stateOptions: {
-      persistState: (state, adaptableStateFunctionConfig) => {
-        localStorage.setItem(
-          adaptableStateFunctionConfig.adaptableStateKey,
-          JSON.stringify(state)
-        );
-        return Promise.resolve(true);
-      },
-      loadState: (config: AdaptableStateFunctionConfig) => {
-        return new Promise((resolve) => {
-          let state = {};
-          try {
-            state =
-              JSON.parse(
-                localStorage.getItem(config.adaptableStateKey) as string
-              ) || {};
-          } catch (err) {
-            console.log('Error loading state', err);
-          }
-          resolve(state);
-        });
-      },
-    },
+    adaptableId: 'ClearDox Support', // Typically you will store State remotely; here we simply leverage local storage for convenience
     initialState: {
       Dashboard: {
         Tabs: [
@@ -81,6 +58,17 @@ export class AppComponent {
               'week_issue_change',
             ],
           },
+          {
+            Name: 'Pivot Layout',
+            PivotColumns: ['license'],
+            PivotGroupedColumns: ['language'],
+            PivotAggregationColumns: [
+              { ColumnId: 'github_stars', AggFunc: 'sum' },
+              { ColumnId: 'github_watchers', AggFunc: 'sum' },
+              { ColumnId: 'open_issues_count', AggFunc: 'sum' },
+              { ColumnId: 'closed_issues_count', AggFunc: 'sum' },
+            ],
+          },
         ],
       },
     },
@@ -99,4 +87,24 @@ export class AppComponent {
     this.adaptableApi = adaptableApi;
     // use AdaptableApi for runtime access to Adaptable
   };
+
+  toggleDashboard() {
+    if (!this.adaptableApi) return;
+
+    if (this.adaptableApi.dashboardApi.isDashboardVisible()) {
+      this.adaptableApi.dashboardApi.hideDashboard();
+    } else {
+      this.adaptableApi.dashboardApi.showDashboard();
+    }
+  }
+
+  showTransposedView() {
+    if (!this.adaptableApi) return;
+
+    this.adaptableApi.gridApi.showTransposedView({
+      transposedColumnId: 'name',
+      hideTransposedColumn: true,
+      autosize: false,
+    });
+  }
 }

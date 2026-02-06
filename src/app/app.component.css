@@ -3,3 +3,40 @@
   display: flex;
   flex-flow: column;
 }
+
+.button-bar {
+  display: flex;
+  gap: 8px;
+  padding: 6px 8px;
+}
+
+.action-btn {
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-indigo {
+  background-color: #3f51b5;
+}
+.btn-indigo:hover {
+  background-color: #303f9f;
+}
+.btn-indigo:active {
+  background-color: #283593;
+}
+
+.btn-teal {
+  background-color: #009688;
+}
+.btn-teal:hover {
+  background-color: #00796b;
+}
+.btn-teal:active {
+  background-color: #00695c;
+}
