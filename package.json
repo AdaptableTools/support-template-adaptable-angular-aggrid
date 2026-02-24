@@ -9,10 +9,10 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
-    "@adaptabletools/adaptable-angular-aggrid": "~21.0.1",
-    "ag-grid-angular": "34.0.2",
-    "ag-grid-enterprise": "34.0.2",
-    "ag-charts-enterprise": "12.0.2",
+    "@adaptabletools/adaptable-angular-aggrid": "~22.0.0",
+    "ag-grid-angular": "35.0.1",
+    "ag-grid-enterprise": "35.0.1",
+    "ag-charts-enterprise": "13.0.1",
     "@angular/animations": "^18.2.14",
     "@angular/common": "^18.2.14",
     "@angular/compiler": "^18.2.14",

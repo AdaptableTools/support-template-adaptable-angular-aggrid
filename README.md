@@ -12,8 +12,8 @@ For full information on how to use AdapTable Angular see the [AdapTable Document
 
 The demo is built using these key packages:
 
-- [AdapTable](https://www.adaptabletools.com/docs) version 21
-- [AG Grid](https://www.ag-grid.com) version 34
+- [AdapTable](https://www.adaptabletools.com/docs) version 22
+- [AG Grid](https://www.ag-grid.com) version 35
 
 ## Contents
 
