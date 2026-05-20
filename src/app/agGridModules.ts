@@ -1,3 +1,3 @@
-import { Module, AllEnterpriseModule } from 'ag-grid-enterprise';
+import { AllEnterpriseModule, Module } from 'ag-grid-enterprise';
 
 export const RECOMMENDED_MODULES: Module[] = [AllEnterpriseModule];

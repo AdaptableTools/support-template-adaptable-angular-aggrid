@@ -1,28 +1,40 @@
 import { Component } from '@angular/core';
-import { GridOptions, Module, themeQuartz } from 'ag-grid-enterprise';
 import {
+  AdaptableAngularAgGridModule,
   AdaptableApi,
-  type AdaptableOptions,
+  AdaptableOptions,
+  AdaptableReadyInfo,
 } from '@adaptabletools/adaptable-angular-aggrid';
-import { rowData } from './rowData';
+import { AgGridAngular } from 'ag-grid-angular';
+import { GridOptions, Module, themeQuartz } from 'ag-grid-enterprise';
+
 import { RECOMMENDED_MODULES } from './agGridModules';
 import { columnDefs, defaultColDef } from './columnDefs';
+import { rowData } from './rowData';
 
 @Component({
-  selector: 'my-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-root',
+  imports: [AdaptableAngularAgGridModule, AgGridAngular],
+  templateUrl: './app.html',
+  styleUrl: './app.css',
 })
-export class AppComponent {
+export class App {
   public agGridModules: Module[] = RECOMMENDED_MODULES;
-  public adaptableApi: AdaptableApi;
-  public gridOptions: GridOptions;
+  public adaptableApi?: AdaptableApi;
+
+  public gridOptions: GridOptions = {
+    theme: themeQuartz,
+    defaultColDef,
+    columnDefs,
+    rowData,
+  };
 
   public adaptableOptions: AdaptableOptions = {
     primaryKey: 'id',
     userName: 'demo-user',
-    // licenseKey: <add_provided_license_key>,
-    adaptableId: 'AdapTable Angular App', // Typically you will store State remotely; here we simply leverage local storage for convenience
+    // licenseKey: '',
+    adaptableId: 'AdapTable Angular App',
+    // Typically you will store State remotely; here we simply leverage local storage for convenience
     initialState: {
       Dashboard: {
         Tabs: [
@@ -62,16 +74,7 @@ export class AppComponent {
     },
   };
 
-  constructor() {
-    this.gridOptions = {
-      theme: themeQuartz,
-      defaultColDef,
-      columnDefs,
-      rowData,
-    };
-  }
-
-  adaptableReady = ({ adaptableApi }) => {
+  adaptableReady = ({ adaptableApi }: AdaptableReadyInfo): void => {
     this.adaptableApi = adaptableApi;
     // use AdaptableApi for runtime access to Adaptable
   };
