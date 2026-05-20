@@ -12,12 +12,12 @@ For full information on how to use AdapTable Angular see the [AdapTable Document
 
 The demo is built using these key packages:
 
-- [AdapTable](https://www.adaptabletools.com/docs) version 22
-- [AG Grid](https://www.ag-grid.com) version 35
+- [AdapTable](https://www.adaptabletools.com/docs) version 22.x
+- [AG Grid](https://www.ag-grid.com) version 35.x
 
 ## Contents
 
-This template contains just the bare bones required to set up an AdapTable instance. 
+This template contains just the bare bones required to set up an AdapTable instance.
 
 A "real world" example would most likely also include:
 
@@ -36,7 +36,6 @@ Execute the following command
 $ npm run start
 ```
 
-
 ## Licences
 
 An [AdapTable Licence](https://www.adaptabletools.com/buy/buying-adaptable-licensing) provides access to all product features as well as quarterly updates and enhancements through the lifetime of the licence, comprehensive support, and access to all 3rd party libraries.
@@ -49,16 +48,14 @@ Please contact [`sales@adaptabletools.com`](mailto:sales@adaptabletools.com) or 
 
 ## Help
 
-Developers can learn how to access AdapTable programmatically at [AdapTable Documentation](https://www.adaptabletools.com/docs).  
+Developers can learn how to access AdapTable programmatically at [AdapTable Documentation](https://www.adaptabletools.com/docs).
 
 Here you can see a large number of AdapTable demos each showing a different feature, function or option in AdapTable.
 
 ## More Information
 
-General information about Adaptable Tools is available at our [Website](http://www.adaptabletools.com) 
- 
+General information about Adaptable Tools is available at our [Website](http://www.adaptabletools.com)
+
 ## Support
 
 For all support enquiries please [raise a Support Ticket](https://adaptabletools.zendesk.com/hc/en-us/requests/new).
-
-
