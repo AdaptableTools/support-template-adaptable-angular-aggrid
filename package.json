@@ -22,11 +22,16 @@
   },
   "private": true,
   "dependencies": {
+    "@adaptabletools/adaptable-angular-aggrid": "~22.0.0",
+    "@angular/animations": "^20.3.21",
     "@angular/common": "^20.3.0",
     "@angular/compiler": "^20.3.0",
     "@angular/core": "^20.3.0",
     "@angular/forms": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
+    "ag-charts-enterprise": "13.0.1",
+    "ag-grid-angular": "35.0.1",
+    "ag-grid-enterprise": "35.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

@@ -26,6 +26,14 @@
             ],
             "styles": [
               "src/styles.css"
+            ],
+            "allowedCommonJsDependencies": [
+              "react",
+              "react-dom",
+              "react-dom/client",
+              "react-dom/server",
+              "use-sync-external-store/with-selector.js",
+              "hoist-non-react-statics"
             ]
           },
           "configurations": {
@@ -33,8 +41,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "6mb",
+                  "maximumError": "8mb"
                 },
                 {
                   "type": "anyComponentStyle",
