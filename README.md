@@ -6,13 +6,13 @@ AdapTable Angular is the Angular Framework version of AdapTable - the market-lea
 
 This template is particularly useful if you wish to build a very small demo for Support purposes.
 
-For full information on how to use AdapTable Angular see the [AdapTable Documentation](https://www.adaptabletools.com/docs/angular-overview).
+For full information on how to use AdapTable Angular see the [AdapTable Documentation](https://www.adaptabletools.com/docs?framework=angular).
 
 ## Versions and Dependencies
 
 The demo is built using these key packages:
 
-- [AdapTable](https://www.adaptabletools.com/docs) version 22.x
+- [AdapTable](https://www.adaptabletools.com/docs) version 23.x
 - [AG Grid](https://www.ag-grid.com) version 35.x
 
 ## Contents
@@ -21,8 +21,8 @@ This template contains just the bare bones required to set up an AdapTable insta
 
 A "real world" example would most likely also include:
 
-- Design-time - providing [Adaptable Options](https://www.adaptabletools.com/docs/reference-options-overview) and [Initial Adaptable State](https://www.adaptabletools.com/docs/reference-initial-state) to configure the application
-- Run-time - using the [Adaptable API](https://www.adaptabletools.com/docs/reference-api-overview) and listening to [Adaptable Events](https://www.adaptabletools.com/docs/reference-event-overview)
+- Design-time - providing [Adaptable Options](https://www.adaptabletools.com/docs/technical-reference-adaptable-options?framework=angular) and [Initial Adaptable State](https://www.adaptabletools.com/docs/technical-reference-initial-state?framework=angular) to configure the application
+- Run-time - using the [Adaptable API](https://www.adaptabletools.com/docs/technical-reference-adaptable-api?framework=angular) and listening to [Adaptable Events](https://www.adaptabletools.com/docs/technical-reference-adaptable-events?framework=angular)
 
 ### Installation
 
