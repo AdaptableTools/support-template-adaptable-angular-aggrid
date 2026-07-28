@@ -20,7 +20,7 @@
     ]
   },
   "dependencies": {
-    "@adaptabletools/adaptable-angular-aggrid": "23.0.8",
+    "@adaptabletools/adaptable-angular-aggrid": "23.0.15",
     "@angular/animations": "^20.3.21",
     "@angular/common": "^20.3.0",
     "@angular/compiler": "^20.3.0",

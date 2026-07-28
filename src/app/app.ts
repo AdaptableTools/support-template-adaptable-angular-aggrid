@@ -4,6 +4,7 @@ import {
   AdaptableApi,
   AdaptableOptions,
   AdaptableReadyInfo,
+  CustomToolbar,
 } from '@adaptabletools/adaptable-angular-aggrid';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions, Module, themeQuartz } from 'ag-grid-enterprise';
@@ -11,6 +12,35 @@ import { GridOptions, Module, themeQuartz } from 'ag-grid-enterprise';
 import { RECOMMENDED_MODULES } from './agGridModules';
 import { columnDefs, defaultColDef } from './columnDefs';
 import { rowData } from './rowData';
+
+/**
+ * When true, columnHeader prefers layout-specific headers.
+ * When false, it falls back to the original headerName from columnDefs.
+ */
+let useLayoutHeaders = true;
+
+const LayoutHeadersToggleToolbar: CustomToolbar = {
+  name: 'LayoutHeadersToggle',
+  title: 'Headers',
+  toolbarButtons: [
+    {
+      label: () => (useLayoutHeaders ? 'Using Layout Headers' : 'Using ColumnDef Headers'),
+      buttonStyle: () => ({
+        variant: 'raised',
+        tone: useLayoutHeaders ? 'success' : 'neutral',
+      }),
+      onClick: (_button, context) => {
+        useLayoutHeaders = !useLayoutHeaders;
+        // Notify AG Grid to re-evaluate the header values
+        context.adaptableApi.agGridApi.refreshHeader();
+        // (Optional) Autosize all columns to fit the new header values
+        context.adaptableApi.columnApi.autosizeAllColumns();
+        // (Just for this demo) Refresh the dashboard to update the toolbar button label / style
+        context.adaptableApi.dashboardApi.refreshDashboard();
+      },
+    },
+  ],
+};
 
 @Component({
   selector: 'app-root',
@@ -33,14 +63,26 @@ export class App {
     primaryKey: 'id',
     userName: 'demo-user',
     // licenseKey: '',
-    adaptableId: 'AdapTable Angular App',
+    adaptableId: 'Layout Headers Toggle',
+    columnOptions: {
+      // @ts-ignore - this is a feature flag, until it is released in the next major version
+      alwaysCallHeaderFunction: true,
+      columnHeader: (context) => {
+        // defaultHeaderName is the resolved value (layout-specific if defined, else ColDef).
+        // colDefHeaderName is always the original Column Definition header.
+        return useLayoutHeaders ? context.defaultHeaderName : context.colDefHeaderName;
+      },
+    },
+    dashboardOptions: {
+      customToolbars: [LayoutHeadersToggleToolbar],
+    },
     // Typically you will store State remotely; here we simply leverage local storage for convenience
     initialState: {
       Dashboard: {
         Tabs: [
           {
             Name: 'Default',
-            Toolbars: ['Layout', 'Query'],
+            Toolbars: ['Layout', 'LayoutHeadersToggle'],
           },
         ],
       },
@@ -68,6 +110,12 @@ export class App {
               'has_pages',
               'week_issue_change',
             ],
+            ColumnHeaders: {
+              name: 'Layout: Name',
+              language: 'Layout: Language',
+              github_stars: 'Layout: GitHub Stars',
+              license: 'Layout: License',
+            },
           },
         ],
       },
